@@ -1,5 +1,6 @@
 namespace Service.Contracts;
+using Shared.DataTransfareObjects;
 public interface IEmployeeService
 {
-    void UpdateEmployees();
+    IEnumerable<EmployeeDto> GetEmployees (Guid companyId, bool trackChanges);
 }

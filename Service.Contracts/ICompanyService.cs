@@ -1,6 +1,6 @@
 namespace Service.Contracts;
 using Entities.Models;
-using Shared.DTOs;
+using Shared.DataTransfareObjects;
 
 public interface ICompanyService
 {

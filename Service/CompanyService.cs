@@ -2,8 +2,9 @@ using Contracts;
 using Service.Contracts;
 using LoggerService;
 using Entities.Models;
-using Shared.DTOs;
+using Shared.DataTransfareObjects;
 using AutoMapper;
+using Entities.Exceptions;
 
 namespace Service
 {
@@ -34,6 +35,8 @@ namespace Service
 
         public CompanyDto GetCompany (Guid id, bool trackChanges) {
             var company = _repository.Company.GetCompany(id, trackChanges);
+            if(company is null) 
+              throw new CompanyNotFoundException(id);
             var companyDto = _mapper.Map<CompanyDto>(company);
             return companyDto;
         }
