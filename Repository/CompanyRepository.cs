@@ -12,6 +12,5 @@ public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
           .OrderBy(c => c.Name)
           .ToList();
 
-    public Company GetCompany(Guid id, bool trackChanges) => FindByCondition(
-        c => c.Id == id, trackChanges).SingleOrDefault();
+    public Company GetCompany(Guid id, bool trackChanges) => FindByCondition(c => c.Id == id, trackChanges).SingleOrDefault();
 }

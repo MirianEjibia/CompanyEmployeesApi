@@ -18,6 +18,12 @@ namespace Controllers.EmployeesController
             var employees = _service.EmployeeService.GetEmployees(companyId, trackChanges);
             return Ok(employees);
         }
+
+        [HttpGet("{id:Guid}")]
+        public IActionResult GetEmployee (Guid companyId, Guid id) {
+            var employee  = _service.EmployeeService.GetEmployee(companyId, id, true);
+            return Ok(employee);
+        }
     }
 
 }
